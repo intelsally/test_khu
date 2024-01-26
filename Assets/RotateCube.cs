@@ -13,12 +13,11 @@ public class RotateCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Multiply(20,30));
-        for (var i = 0; i < amountOfCube; i++)
-        {
-            var cube = Instantiate(cubeForCopy);
-            cube.transform.position = new Vector3(i, 0, 0);
-        }
+        CubeProperty cubeProperty = new CubeProperty();
+        cubeProperty.cubeSize = 123123;
+        cubeProperty.cubeName = gameObject.name;
+        Debug.Log(cubeProperty.cubeSize); 
+       
     }
 
    void OnEnable()
@@ -31,7 +30,7 @@ public class RotateCube : MonoBehaviour
         Debug.Log("Disabled");
     }
     // Update is called once per frame
-    void Update()
+    public virtual void Update() // 상속받은 자식도 이건 갖게하자
     {
         if (Input.GetMouseButton(0))
         { Rotate(); }
